@@ -1,6 +1,6 @@
 {
   "name": "boost.cxx",
-  "version": "0.0.2",
+  "version": "1.90.0",
   "description": "Super-project for modularized Boost; Dawes et al. (1998).",
   "keywords": [
     "cxx",
