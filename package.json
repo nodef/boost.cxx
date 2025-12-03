@@ -1,0 +1,28 @@
+{
+  "name": "boost.cxx",
+  "version": "0.0.2",
+  "description": "Super-project for modularized Boost; Dawes et al. (1998).",
+  "keywords": [
+    "cxx",
+    "library",
+    "boost"
+  ],
+  "homepage": "https://github.com/nodef/boost.cxx#readme",
+  "bugs": {
+    "url": "https://github.com/nodef/boost.cxx/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodef/boost.cxx.git"
+  },
+  "license": "BSL-1.0",
+  "author": "wolfram77@gmail.com",
+  "type": "commonjs",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "exit"
+  }
+}
