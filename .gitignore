@@ -1,8 +1,9 @@
-# Boost libs
+# Library files
 boost/
 
-# Build directory
+# Build artifacts
 .build/
+*.exe
 
 # Logs
 logs

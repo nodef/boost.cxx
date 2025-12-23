@@ -11,9 +11,36 @@ Run:
 $ npm i boost.cxx
 ```
 
-And then include `boost.cxx` as follows:
-```c
+And then include `boost/thread.hpp` as follows:
+
+```cxx
+// main.cxx
 #include "node_modules/boost.cxx/boost/thread.hpp"
+
+int main() { /* ... */ }
+```
+
+And then compile with `clang++` or `g++` as usual.
+
+```bash
+$ clang++ main.cxx  # or, use g++
+$ g++     main.cxx
+```
+
+You may also use a simpler approach:
+
+```cxx
+// main.cxx
+#include <boost/thread.hpp>
+
+int main() { /* ... */ }
+```
+
+If you add the path `node_modules/boost.cxx` to your compiler's include paths.
+
+```bash
+$ clang++ -I./node_modules/boost.cxx main.cxx  # or, use g++
+$ g++     -I./node_modules/boost.cxx main.cxx
 ```
 
 <br>

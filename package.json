@@ -1,6 +1,6 @@
 {
   "name": "boost.cxx",
-  "version": "1.90.0",
+  "version": "1.90.1",
   "description": "Super-project for modularized Boost; Dawes et al. (1998).",
   "keywords": [
     "cxx",
@@ -17,12 +17,8 @@
   },
   "license": "BSL-1.0",
   "author": "wolfram77@gmail.com",
-  "type": "commonjs",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
+  "main": "boost/",
   "scripts": {
-    "test": "exit"
+    "test": "bash build.sh test"
   }
 }

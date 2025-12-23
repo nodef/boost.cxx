@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# Build the package
+build() {
 URL="https://github.com/boostorg/boost/releases/download/boost-1.90.0.beta1/boost-1.90.0.beta1-cmake.zip"
 ZIP="${URL##*/}"
 DIR="${ZIP%-cmake.zip}"
@@ -21,6 +23,7 @@ if [ ! -d "$DIR" ]; then
   mv "$ZIP.bak" "$ZIP"
   echo ""
 fi
+cd ..
 
 # Ensure all libs are added to gitignore
 # echo "Updating .gitignore ..."
@@ -35,10 +38,33 @@ fi
 # done
 
 # Copy the libs to the package directory
-mkdir -p ../boost
-for libdir in "$DIR"/libs/*; do
+mkdir -p boost
+for libdir in ".build/$DIR/libs/"*; do
   lib="${libdir##*/}"
   if [ ! -d "$libdir" ]; then continue; fi
-  echo "Copying $lib to $lib/ ..."
-  cp -rf "$libdir/include/boost"/* ../boost/
+  echo "Copying $lib ..."
+  if [ -d "$libdir/include/boost" ]; then
+    cp -rf "$libdir/include/boost"/* boost/
+  else
+    mkdir -p "boost/$lib"
+    for libsubdir in "$libdir/"*; do
+      sublib="${libsubdir##*/}"
+      echo "Copying $lib/$sublib ..."
+      if [ -d "$libsubdir/include/boost" ]; then
+        cp -rf "$libsubdir/include/boost"/* boost/
+      fi
+    done
+  fi
 done
+}
+
+
+# Test the package
+test() {
+echo "Running 01-thread.cxx ..."
+g++ -I. -std=c++17 examples/01-thread.cxx && ./a && echo -e "\n"
+}
+
+
+# Main script
+if [[ "$1" == "test" ]]; then test; else build; fi
