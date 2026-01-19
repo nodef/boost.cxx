@@ -1,7 +1,7 @@
 {
   "name": "boost.cxx",
-  "version": "1.90.1",
-  "description": "Super-project for modularized Boost; Dawes et al. (1998).",
+  "version": "1.90.6",
+  "description": "A collection of high-quality, free, and open-source libraries that extend the functionality of the C++ programming language; Dawes et al. (1998).",
   "keywords": [
     "c++",
     "library",
