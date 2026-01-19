@@ -3,9 +3,12 @@
   "version": "1.90.1",
   "description": "Super-project for modularized Boost; Dawes et al. (1998).",
   "keywords": [
-    "cxx",
+    "c++",
     "library",
-    "boost"
+    "boost",
+    "standard",
+    "templates",
+    "header-only"
   ],
   "homepage": "https://github.com/nodef/boost.cxx#readme",
   "bugs": {

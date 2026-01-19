@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# Build the package
-build() {
+# Fetch the latest version of the library
+fetch() {
+if [ -d "boost" ]; then return; fi
 URL="https://github.com/boostorg/boost/releases/download/boost-1.90.0.beta1/boost-1.90.0.beta1-cmake.zip"
 ZIP="${URL##*/}"
 DIR="${ZIP%-cmake.zip}"
@@ -59,7 +60,7 @@ done
 }
 
 
-# Test the package
+# Test the project
 test() {
 echo "Running 01-thread.cxx ..."
 g++ -I. -std=c++17 examples/01-thread.cxx && ./a && echo -e "\n"
@@ -67,4 +68,6 @@ g++ -I. -std=c++17 examples/01-thread.cxx && ./a && echo -e "\n"
 
 
 # Main script
-if [[ "$1" == "test" ]]; then test; else build; fi
+if [[ "$1" == "test" ]]; then test
+elif [[ "$1" == "fetch" ]]; then fetch
+else echo "Usage: $0 {fetch|test}"; fi
